@@ -12,7 +12,11 @@ export default function Companies() {
 
     const init = async () => {
         const response = await axios.get(`${BASE_URL}/business/`, {})
-        setCompanies(company.concat(response.data.businesses))
+        if(response){
+            setCompanies(company.concat(response.data.businesses))
+        } else{
+            setCompanies(company)
+        }
     }
 
     useEffect(() => {

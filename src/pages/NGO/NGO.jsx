@@ -13,7 +13,12 @@ export default function NGO() {
 
     const init = async () => {
         const response = await axios.get(`${BASE_URL}/ngo/`, {})
-        setNgos(ngo.concat(response.data.Ngos))
+        if(response){
+            setNgos(ngo.concat(response.data.Ngos))
+        }
+        else{
+            setNgos(ngo)
+        }
     }
 
     useEffect(() => {
